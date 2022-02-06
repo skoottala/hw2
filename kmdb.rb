@@ -86,7 +86,38 @@ movie.save
 movie= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:1})
 movie.save
 
+person=Person.new({name: "Christian Bale"})
+person.save
 
+person=Person.new({name: "Michael Caine"})
+person.save
+
+person=Person.new({name: "Liam Neeson"})
+person.save
+
+person=Person.new({name: "Katie Holmes"})
+person.save
+
+person=Person.new({name: "Gary Oldman"})
+person.save
+
+person=Person.new({name: "Heath Ledger"})
+person.save
+
+person=Person.new({name: "Aaron Eckhart"})
+person.save
+
+person=Person.new({name: "Maggie Gyllenhaal"})
+person.save
+
+person=Person.new({name: "Tom Hardy"})
+person.save
+
+person=Person.new({name: "Joseph Gordon-Levitt"})
+person.save
+
+person=Person.new({name: "Anne Hathaway"})
+person.save
 
 # Prints a header for the movies output
 puts "Movies"
@@ -95,15 +126,17 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
-Movie.all
+movies = Movie.all
 
 puts "There are #{Movie.all.count} movies"
 
-Puts Movie.title
-
-for row in Movie
-    puts "#{Movie.title} #{Movie.year_released} #{Movie.rated}"
+for movie in movies
+    puts "#{movie.title} #{movie.year_released} #{movie.rated}"
 end
+
+
+people = Person.all
+puts "There are #{Person.all.count} people"
 
 # Prints a header for the cast output
 puts ""
