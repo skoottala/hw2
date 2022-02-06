@@ -119,6 +119,24 @@ person.save
 person=Person.new({name: "Anne Hathaway"})
 person.save
 
+
+role=Role.new(movie_id: 1, person_id: 2, character_name: "Bruce Wayne")
+role.save
+
+role=Role.new(movie_id: 1, person_id: 3, character_name: "Alfred")
+role.save
+
+role=Role.new(movie_id: 1, person_id: 4, character_name: "Ra's Al Ghul")
+role.save
+
+role=Role.new(movie_id: 1, person_id: 5, character_name: "Rachel Dawes")
+role.save
+
+role=Role.new(movie_id: 1, person_id: 6, character_name: "Commissioner Gordon")
+role.save
+
+
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
@@ -131,12 +149,15 @@ movies = Movie.all
 puts "There are #{Movie.all.count} movies"
 
 for movie in movies
-    puts "#{movie.title} #{movie.year_released} #{movie.rated}"
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #"
 end
 
 
 people = Person.all
 puts "There are #{Person.all.count} people"
+
+role=Role.all
+puts "there are #{Role.all.acount} roles"
 
 # Prints a header for the cast output
 puts ""
