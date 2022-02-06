@@ -86,6 +86,8 @@ movie.save
 movie= movies.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:1})
 movie.save
 
+
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
