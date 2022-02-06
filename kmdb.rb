@@ -69,13 +69,22 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-Model.destroy_all
+#movies.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
-
+#completed in terminal with rails generate model and rails db:migrate
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+movie= movies.new({ title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id:1})
+movie.save
+
+movie= movies.new({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id:1})
+movie.save
+
+movie= movies.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:1})
+movie.save
 
 # Prints a header for the movies output
 puts "Movies"
@@ -84,6 +93,9 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+for row in movies
+    puts "#{title} #{year_released} #{rated} #{person_id}"
+end
 
 # Prints a header for the cast output
 puts ""
