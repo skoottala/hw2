@@ -70,6 +70,8 @@
 # Use `Model.destroy_all` code.
 # TODO!
 Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
 #completed in terminal with rails generate model and rails db:migrate
@@ -85,6 +87,9 @@ movie.save
 
 movie= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:1})
 movie.save
+
+person=Person.new({name: Christopher Nolan})
+person.save
 
 person=Person.new({name: "Christian Bale"})
 person.save
@@ -157,7 +162,7 @@ people = Person.all
 puts "There are #{Person.all.count} people"
 
 role=Role.all
-puts "there are #{Role.all.acount} roles"
+puts "there are #{Role.all.count} roles"
 
 # Prints a header for the cast output
 puts ""
