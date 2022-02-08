@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
-   has_many :person
-
+    has_many :persons
+    has_many :roles
    # def director
     #    Person.where({Movie_id:self.id})
    # end

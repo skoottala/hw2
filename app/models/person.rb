@@ -1,3 +1,4 @@
 class Person < ApplicationRecord
-    has_many :movie
+    has_many :movies
+    has_many :roles
 end

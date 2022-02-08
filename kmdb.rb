@@ -86,66 +86,64 @@ person.save
 nolan=Person.where({name: "Christopher Nolan"})[0]
 puts "The id is #{nolan.id}"
 
-person=Person.new({name: "Christian Bale"})
-person.save
+person1=Person.new({name: "Christian Bale"})
+person1.save
 
-person=Person.new({name: "Michael Caine"})
-person.save
+person2=Person.new({name: "Michael Caine"})
+person2.save
 
-person=Person.new({name: "Liam Neeson"})
-person.save
+person3=Person.new({name: "Liam Neeson"})
+person3.save
 
-person=Person.new({name: "Katie Holmes"})
-person.save
+person4=Person.new({name: "Katie Holmes"})
+person4.save
 
-person=Person.new({name: "Gary Oldman"})
-person.save
+person5=Person.new({name: "Gary Oldman"})
+person5.save
 
-person=Person.new({name: "Heath Ledger"})
-person.save
+person6=Person.new({name: "Heath Ledger"})
+person6.save
 
-person=Person.new({name: "Aaron Eckhart"})
-person.save
+person7=Person.new({name: "Aaron Eckhart"})
+person7.save
 
-person=Person.new({name: "Maggie Gyllenhaal"})
-person.save
+person8=Person.new({name: "Maggie Gyllenhaal"})
+person8.save
 
-person=Person.new({name: "Tom Hardy"})
-person.save
+person9=Person.new({name: "Tom Hardy"})
+person9.save
 
-person=Person.new({name: "Joseph Gordon-Levitt"})
-person.save
+person10=Person.new({name: "Joseph Gordon-Levitt"})
+person10.save
 
-person=Person.new({name: "Anne Hathaway"})
-person.save
+person11=Person.new({name: "Anne Hathaway"})
+person11.save
 
 
 
-movie= Movie.new({ title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id:nolan.id})
-movie.save
+movie1= Movie.new({ title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id:nolan.id})
+movie1.save
 
-movie= Movie.new({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id:nolan.id})
-movie.save
+movie2= Movie.new({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id:nolan.id})
+movie2.save
 
-movie= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:nolan.id})
-movie.save
+movie3= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:nolan.id})
+movie3.save
 
-role=Role.new(movie_id: 1, person_id: 2, character_name: "Director")
+
+role=Role.new({movie_id: movie1.id, person_id: person1.id, character_name: "Bruce Wayne"})
 role.save
 
-role=Role.new(movie_id: 1, person_id: 2, character_name: "Bruce Wayne")
+role=Role.new({movie_id: movie1.id, person_id: person2.id, character_name: "Alfred"})
 role.save
 
-role=Role.new(movie_id: 1, person_id: 3, character_name: "Alfred")
+role=Role.new({movie_id: movie1.id, person_id: person3.id, character_name: "Ra's Al Ghul"})
 role.save
 
-role=Role.new(movie_id: 1, person_id: 4, character_name: "Ra's Al Ghul")
+role=Role.new({movie_id: movie1.id, person_id: person4.id, character_name: "Rachel Dawes"})
 role.save
 
-role=Role.new(movie_id: 1, person_id: 5, character_name: "Rachel Dawes")
-role.save
-
-role=Role.new(movie_id: 1, person_id: 6, character_name: "Commissioner Gordon")
+role=Role.new({movie_id: movie1.id, person_id: person5.id, character_name: "Commissioner Gordon"})
 role.save
 
 
@@ -161,20 +159,20 @@ movies = Movie.all
 
 puts "There are #{Movie.all.count} movies"
 
-director = Person.where({id: movie.person_id})
+
 
 for movie in movies
-  
-   puts "#{movie.title} #{movie.year_released} #{movie.rated} #{director.name} "
+    director = Person.where({id: movie.person_id})[0]
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{director.name} "
 #    puts "#{movie.director.count}"
 end
 
 
 people = Person.all
-puts "There are #{Person.all.count} people"
+#puts "There are #{Person.all.count} people"
 
-role=Role.all
-puts "there are #{Role.all.count} roles"
+roles=Role.all
+#puts "there are #{Role.all.count} roles"
 
 # Prints a header for the cast output
 puts ""
@@ -184,3 +182,9 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+for role in roles
+    actor = Person.where({id:role.person_id})[0]
+    film= Movie.where({id:role.movie_id})[0]
+    puts "#{film.title} #{actor.name} #{role.character_name}"
+#    puts "#{movie.director.count}"
+end
