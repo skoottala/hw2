@@ -84,7 +84,7 @@ person=Person.new({name: "Christopher Nolan"})
 person.save
 
 nolan=Person.where({name: "Christopher Nolan"})[0]
-puts "The id is #{nolan.id}"
+#puts "The id is #{nolan.id}"
 
 person1=Person.new({name: "Christian Bale"})
 person1.save
@@ -130,7 +130,7 @@ movie2.save
 movie3= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:nolan.id})
 movie3.save
 
-
+#Batman begins
 role=Role.new({movie_id: movie1.id, person_id: person1.id, character_name: "Bruce Wayne"})
 role.save
 
@@ -146,8 +146,37 @@ role.save
 role=Role.new({movie_id: movie1.id, person_id: person5.id, character_name: "Commissioner Gordon"})
 role.save
 
+#Dark Knight
+role=Role.new({movie_id: movie2.id, person_id: person1.id, character_name: "Bruce Wayne"})
+role.save
 
+role=Role.new({movie_id: movie2.id, person_id: person6.id, character_name: "Joker"})
+role.save
 
+role=Role.new({movie_id: movie2.id, person_id: person7.id, character_name: "Harvey Dent"})
+role.save
+
+role=Role.new({movie_id: movie2.id, person_id: person2.id, character_name: "Alfred"})
+role.save
+
+role=Role.new({movie_id: movie2.id, person_id: person8.id, character_name: "Rachel Dawes"})
+role.save
+
+#The Dark Knight Rises
+role=Role.new({movie_id: movie3.id, person_id: person1.id, character_name: "Bruce Wayne"})
+role.save
+
+role=Role.new({movie_id: movie3.id, person_id: person5.id, character_name: "Commissioner Gordon"})
+role.save
+
+role=Role.new({movie_id: movie3.id, person_id: person9.id, character_name: "Bane"})
+role.save
+
+role=Role.new({movie_id: movie3.id, person_id: person10.id, character_name: "John Blake"})
+role.save
+
+role=Role.new({movie_id: movie3.id, person_id: person11.id, character_name: "Selina Kyle"})
+role.save
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
@@ -157,7 +186,7 @@ puts ""
 # TODO!
 movies = Movie.all
 
-puts "There are #{Movie.all.count} movies"
+#puts "There are #{Movie.all.count} movies"
 
 
 
