@@ -79,17 +79,12 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-movie= Movie.new({ title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id:1})
-movie.save
 
-movie= Movie.new({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id:1})
-movie.save
-
-movie= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:1})
-movie.save
-
-person=Person.new({name: Christopher Nolan})
+person=Person.new({name: "Christopher Nolan"})
 person.save
+
+nolan=Person.where({name: "Christopher Nolan"})[0]
+puts "The id is #{nolan.id}"
 
 person=Person.new({name: "Christian Bale"})
 person.save
@@ -125,6 +120,19 @@ person=Person.new({name: "Anne Hathaway"})
 person.save
 
 
+
+movie= Movie.new({ title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id:nolan.id})
+movie.save
+
+movie= Movie.new({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id:nolan.id})
+movie.save
+
+movie= Movie.new({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id:nolan.id})
+movie.save
+
+role=Role.new(movie_id: 1, person_id: 2, character_name: "Director")
+role.save
+
 role=Role.new(movie_id: 1, person_id: 2, character_name: "Bruce Wayne")
 role.save
 
@@ -153,8 +161,12 @@ movies = Movie.all
 
 puts "There are #{Movie.all.count} movies"
 
+director = Person.where({id: movie.person_id})
+
 for movie in movies
-    puts "#{movie.title} #{movie.year_released} #{movie.rated} #"
+  
+   puts "#{movie.title} #{movie.year_released} #{movie.rated} #{director.name} "
+#    puts "#{movie.director.count}"
 end
 
 
